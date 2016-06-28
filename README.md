@@ -1,5 +1,4 @@
-# word-counter-chrome-extension
-Word Counter chrome extension
+# Word Counter chrome extension
 
 This extension helps to count characters, words, syllables and sentences of a selected text in the page. 
 It also calculate the Flesch readability score of the text. The Flesch readability score distinguish the level of understanding of a text for audience.
