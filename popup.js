@@ -48,12 +48,13 @@ function renderText(text) {
   } else{
     readability = "Moderate";
   }
+
   var finalText = "Number of characters with space: " + c + "\n" + 
-                  "Number of characters without space: " + cw + "\n" + 
-                  "Number of words: " + w + "\n" + 
-                  "Number of syllables: " + sy + "\n" +
-                  "Number of sentences: " + st + "\n" +
-                  "Flesch readability score: " + readability + " ";
+                    "Number of characters without space: " + cw + "\n" + 
+                    "Number of words: " + w + "\n" + 
+                    "Number of syllables: " + sy + "\n" +
+                    "Number of sentences: " + st + "\n" +
+                    "Flesch readability score: " + readability + " ";
 
   document.getElementById('text').textContent = finalText;
 }
@@ -64,7 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
     chrome.tabs.executeScript( {
       code: "window.getSelection().toString();"
     }, function(selection) {
-      renderText(selection[0]);
+      if(!selection || selection == ''){
+        document.getElementById('text').textContent = "Please select your text!";
+      }else
+        renderText(selection[0]);
     });
 
   });
